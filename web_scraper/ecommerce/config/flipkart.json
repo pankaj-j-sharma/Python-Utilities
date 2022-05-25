@@ -1,0 +1,26 @@
+{
+"base_url": "https://www.flipkart.com/search?q={keywords}&page={pageno}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off",
+"prod_url": "https://www.flipkart.com{product}",
+"columns":["Title","Review Title","Review Rating","Review Text"],
+"sort_by":["Title"],
+"header":{
+		"Connection": "keep-alive",
+		"Pragma": "no-cache",
+		"Cache-Control": "no-cache",
+		"DNT": "1",
+		"Upgrade-Insecure-Requests": "1",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36",
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Sec-Fetch-Site": "same-origin",
+		"Sec-Fetch-Mode": "navigate",
+		"Sec-Fetch-User": "?1",
+		"Sec-Fetch-Dest": "document",
+		"Accept-Language": "en-GB,en;q=0.9",
+		"Cookie": "T=TI160567959662000202418652011848170229089147627071235085389041759013; AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C18585%7CMCMID%7C71868589438652644044599166012628754152%7CMCAAMLH-1606284396%7C12%7CMCAAMB-1606284396%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1605686797s%7CNONE%7CMCAID%7CNONE; s_cc=true; SN=VI49B89E132EF14343A1E20AA9A71D6990.TOK7DDA95E460DB49778279F1FDED833691.1605680125.LO; qH=532c28d5412dd75b; S=d1t19TSs/Pz1HYj4/PwU/UT8/ORY+KEJAClKEX2ycOyAXovovd7mIcodLwxGwh/+3suIkNEI+Tmw9q7R0GsV549s3ag==; gpv_pn=HomePage; gpv_pn_t=FLIPKART%3AHomePage; s_sq=%5B%5BB%5D%5D"
+		},
+"search_prod":["div",{"data-id":true}],
+"link_prod":[["a",{"class":true}],["a",{"class":"IRpwTa"}],["a","s1Q9rs"]],
+"name_prod":["div",{"class":"_4rR01T"}],
+"link_review":["div",{"class":"_3UAT2v"}],
+"title_review":["span",{"class":"B_NuCI"}]
+}
