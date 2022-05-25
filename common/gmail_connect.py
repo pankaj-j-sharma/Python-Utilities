@@ -6,7 +6,7 @@ import os
 
 # account credentials
 username = "pankajs579@gmail.com"
-password = "97687394399819669948sharma"
+password = input("enter your password")
 
 def clean(text):
     # clean text for creating a folder
