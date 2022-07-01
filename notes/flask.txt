@@ -80,4 +80,141 @@ Attribute values should always be quoted.
     X-Download-Options
     Public-Key-Pins (HPKP)  
 
-    
+references 
+https://www.knowledgehut.com/interview-questions/flask
+
+
+What is WSGI?
+WSGI stands for the Web Server Gateway Interface
+It is a specification that describes how a web server communicates with a web application.
+
+What is the default host port and port of Flask?
+Flask default host is a localhost (127.0.0.1), and the default port is 5000
+
+How to get query String in Flask?
+We can get the argument’s value using the request object in Flask.
+val = request.args.get("var")
+
+How to use url_for in the Flask application?
+Flask’s url_for function helps in creating dynamic routes.
+<a href=”{{ url_for(‘get_post_id’, post_id=post.id}}”>{{post.title}}<a>
+@app.route(“/blog/post/<string:post_id>”)
+def get_post_id(post_id):
+return post_id
+
+What are the benefits of using the Flask framework?
+It has an inbuilt development server.
+It has vast third-party extensions.
+It has a tiny API and can be quickly learned by a web developer.
+It is WSGI compliant.
+It supports Unicode.
+
+What do you mean by template engines in the Flask framework?
+A template is a file that contains two types of data, i.e., static and dynamic. 
+Dynamic data in a template is populated during run time. Flask makes use of 
+Jinja2 template engine to let developers create HTML templates with placeholders 
+for dynamic data.
+
+What do you mean by Thread local object in Flask?
+In Flask, thread-safety has been provided out of the box. We can use objects such as 
+current_app, g, and request without worrying about problems related to locking and concurrency.
+
+How to use a session in Flask?
+Whenever we want to save some data between requests, then we make use of session objects in Flask.
+@app.route('/use_session')
+def use_session()
+    if 'song' not in session:
+        session['songs'] = {'title': 'Tapestry', 'singer': 'Bruno Major'}
+
+
+What is the g object in Flask? How does it differ from the session object?
+Flask’s g object is used as a global namespace for holding any data during the application context. 
+g object is not appropriate for storing the data between requests. The letter g, in a sense, stands for global.
+
+
+How to access sessions in Flask. State if flask is an MVC model ?
+A session in Flask Python is a feature that allows one to remember the information from one request to another.
+In a flask program, it makes use of a signed cookie so that the user can look at the contents of the session and modify them. 
+The user can also modify the sessions if and only if it has the secret key called the Flask.secret_key. 
+Flask is a small form of Python framework, which behaves the same as the MVC framework. So MVC is a perfect match for Flask.
+
+
+How is memory managed in Flask Python ?
+Flask Python is a collection of private heap spaces, which holds all objects and data structures together.
+Programmers cannot access it. It is the task of the interpreter to manage it.
+
+
+How to upload files in Flask python ?
+Flask makes it simple to manage uploaded files. Just remember to include the enctype="multipart/form-data" 
+tag in your HTML form, or the browser will refuse to send your files. Uploaded files are kept in memory or on the filesystem in a temporary place. 
+You may get to those files by looking at the request object's files attribute
+It has the same behavior as a typical Python file object, but it additionally provides a save() method that allows you to save the file to the server's filesystem
+If you wish to utilize the client's filename to store the file on the server, you can use the secure filename() function that Werkzeug provides
+
+from flask import request
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+  if request.method == 'POST':
+    file = request.files['the_file']
+    file.save('/var/www/uploads/uploaded_file.txt')
+    file.save(f"/var/www/uploads/{secure_filename(file.filename)}")
+
+
+What is HTML escaping in Flask?
+To protect against injection attacks, any user-provided values rendered in the output must be enclosed when returning HTML (the default response type in Flask). 
+This will be done automatically using HTML templates produced with Jinja.
+
+
+Difference between Blueprint and Views in Flask ?
+A Blueprint is a method of organizing a collection of related views and other code. 
+Instead of registering views and other code with an application directly, 
+they are registered with a blueprint.
+The code you write to reply to queries to your application is known as a view function. 
+Flask matches the incoming request URL to the view that should handle it using patterns
+
+
+How to control auto escaping in Flask ?
+Autoescaping is the concept of having special characters automatically escape for you. 
+&, >, <, ", and ' are special characters in the context of HTML (or XML, and thus XHTML). 
+If you want to use these characters in the text, you must replace them with so-called "entities" because they have special meanings in documents on their own. 
+Not doing so would not only frustrate users by preventing them from using certain characters in the text, but it might also lead to security issues
+However, you may need to disable autoescaping in templates on occasion. 
+This is true if you want to inject HTML into sites explicitly, such as when they come from a system that generates secure HTML, such as a markdown to HTML converter.
+{% autoescape false %}
+  <p>autoescaping is disabled here<p>{{ will_not_be_escaped }}
+{% endautoescape %}
+
+
+what are signals in Flask and how to use it ?
+Signals allow you to decouple apps by sending notifications when activities in the core framework or other Flask extensions occur. 
+In a nutshell, signals allow particular senders to alert subscribers to an event.
+You can use the blinker library directly if you wish to use signals in your own application. 
+Named signals in a custom Namespace are the most prevalent use case
+
+from blinker import Namespace
+my_signals = Namespace()
+model_saved = my_signals.signal('model-saved')
+
+
+Explain Application context ? 
+During a request, CLI command, or other activity, the application context keeps track of application-level data. 
+The current app and g proxies are used instead of passing the application around to each function.
+Instead of referring to an app directly, you use the current_app proxy, 
+which points to the application that is now handling the action.
+When handling a request, Flask automatically pushes an application context. current_app will be accessible to view functions, 
+error handlers, and other functions that run during a request.
+As needed, the application context is generated and removed. 
+A Flask application pushes an application context and a request context when it starts handling a request.
+An application context usually lasts the same amount of time as a request.
+
+
+What is application dispatching ?
+On the WSGI level, application dispatching is the process of joining numerous Flask apps. 
+You can mix and match any WSGI application, not only Flask. If you like, you can run a Django and a Flask application in the same interpreter at the same time.
+The main distinction between this and Large Applications as Packages is that you're running the same or different Flask applications that are completely separate from one another. 
+They are dispatched on the WSGI level and run distinct configurations.
+
+
+How to redirect user to another endpoint ?
+Use the redirect() function to send a user to another endpoint; use the abort() function to abort a request early with an error code:
+
