@@ -1,0 +1,28 @@
+
+# how do you analyse and improve memory performance
+# dynamic programming
+# how is hash calculated
+# design a Dictionary class
+# process and a thread in python
+# how do you stop a class ineritance
+# matrix manipulation , recursion
+# flask
+# signals in django
+# __init_subclass__
+# partial functions
+# quorum value nosql data
+# CAP theoram
+# Centry
+# CORS headers for DRF
+# custom json renderer
+# JWT authentication , auth token and refresh token
+# secure scret key approaches uuid.uuid4().hex , os.urandom(12) , secrets.token_urlsafe(12)
+# JWT token expiration time helps in generating a diffrent token everytime we reauthenticate
+# The MIDDLEWARE list is like an onion so each request passes through from top to bottom and
+# response is in reverse order (bottom to up).
+# middlewares in flask
+# implementing 2.7 features of dictionary in python 3.7 where keys are not stored in an order i.e.
+# how is Ordereddcit implemented in python ( doubly linked list)
+# python rq , asynchronous taks python
+# celery
+
