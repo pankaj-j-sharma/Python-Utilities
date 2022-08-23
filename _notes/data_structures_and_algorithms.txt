@@ -1,0 +1,7 @@
+dictionary uses hashmap behinid the scene key -> hash function -> adddress of bucket -> get the element
+For a long time, it worked exactly like this. Python would preallocate 8 empty rows and use the hash to determine where to stick the key-value pair. 
+For example, if the hash for the key ended in 001, it would stick it in the 1 (i.e. 2nd) index
+
+we can implement stack with list but the time complexity of pop and push of a list can be O(n) , 
+so instead use dequeue from collections as they use linked list implementation
+

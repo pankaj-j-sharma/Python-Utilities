@@ -1,3 +1,150 @@
+Topics 
+------------------------------------------------------------------------------------------------------------------------
+Defining Entry Program in Python 
+Dynamic Programming in Python - https://pythonwife.com/dynamic-programming-in-python/
+Destructors - https://www.educba.com/destructor-in-python/?source=leftnav
+Generators 
+Iterators 
+Decorators
+Closures
+Database Connections 
+
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+how do you analyse and improve memory performance?
+The lowest layer of memory profiling involves looking at a single object in memory
+import sys
+sys.getsizeof({})
+sys.getsizeof([])
+sys.getsizeof(set())
+The easiest way to profile a single method or function is the open source memory-profiler  
+You can use it by putting the @profile decorator around any function or method and running 
+from memory_profiler import profile
+python -m memory_profiler myscript. 
+You'll see line-by-line memory usage once your script exits.
+Rather than having to profile an entire Python application, use guppy .
+from guppy import hpy
+h = hpy()
+print h.heap()
+mprof can show you memory usage over the lifetime of your application. 
+This can be useful if you want to see if your memory is getting cleaned up and released periodically.
+mprof run data_structures\graph.py
+mprof plot data_structures\graph.py
+
+------------------------------------------------------------------------------------------------------------------------
+
+dynamic programming
+https://favtutor.com/blogs/dynamic-programming
+
+------------------------------------------------------------------------------------------------------------------------
+
+Diffrence between process and a thread in python
+Processes are basically the programs that are dispatched from the ready state and are scheduled in the CPU for execution
+A process can create other processes which are known as Child Processes
+Thread is the segment of a process which means a process can have multiple threads and these multiple threads are contained within a process. 
+A thread has three states: Running, Ready, and Blocked. 
+
+1.  Process means any program is in execution.	            Thread means a segment of a process.
+2.	The process takes more time to terminate.	            The thread takes less time to terminate.
+3.	It takes more time for creation.	                    It takes less time for creation.
+4.	It also takes more time for context switching.	        It takes less time for context switching.
+5.	process is less efficient in terms of communication.    Thread is more efficient in terms of communication.
+6. 	Multiprogramming holds the concepts of multi-process.	We don’t need multi programs in action for multiple threads because a single process consists of multiple threads.
+7.	The process is isolated.	                            Threads share memory.
+8.	The process is called the heavyweight process.	        A Thread is lightweight as each thread in a process shares code, data, and resources.
+9.	Process switching uses an interface in an OS.       	Thread switching does not require calling an operating system and causes an interrupt to the kernel.
+10.	The process has its own Process Control Block,          Thread has Parents’ PCB, its own Thread Control Block,
+    Stack, and Address Space.	                            and Stack and common Address space.
+11.	A system call is involved in it.	                    No system call is involved, it is created using APIs.
+12.	The process does not share data with each other.	    Threads share data with each other.
+
+------------------------------------------------------------------------------------------------------------------------
+
+how do you stop a class ineritance?
+using __init_subclass__ to stop inheritance can be done 
+
+class Parent:
+    def __init__(self):
+        self.name='Pankaj'
+        self.last='Sharma'
+
+    def __init_subclass__(cls):
+        print(cls.__name__,'cannot inherit')
+        raise Exception("unable to inherit")
+
+class Children(Parent):
+    def __init__(self):
+        self.name='Pankaj jr'
+        self.last='Sharma jr'
+
+child = Children
+
+------------------------------------------------------------------------------------------------------------------------
+
+can set have item with mutable data type?
+It gives an error as below when using mutable data types 
+TypeError: unhashable type: 'list'
+
+------------------------------------------------------------------------------------------------------------------------
+
+does python support method overloading
+Python is a dynamically typed language, so the concept of overloading simply does not apply to it. However, all is not lost, since we can create such alternative functions at run-time:
+python does not support method overloading by default. But there are different ways to achieve method overloading in Python. 
+We may define many methods of the same name and different arguments, but we can only use the latest defined method. 
+Method 1 (Not The Most Efficient Method): def add(datatype, *args):
+We can use the arguments to make the same function work differently i.e. as per the arguments.
+Method 2 (Efficient One): By Using Multiple Dispatch Decorator 
+pip3 install multipledispatch
+from multipledispatch import dispatch
+  
+#passing one parameter
+@dispatch(int,int)
+def product(first,second):
+    result = first*second
+    print(result);
+  
+#passing two parameters
+@dispatch(int,int,int)
+def product(first,second,third):
+    result  = first * second * third
+    print(result);
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+how to handle database credentials when connecting to multiple databases
+Storing them as system variables
+Storing them as variables in your virtual environment
+Storing them in a .env file
+
+------------------------------------------------------------------------------------------------------------------------
+
+diffrent type of operators in python 
+Arithmetic operators.
+Assignment operators.
+Comparison operators.
+Logical operators.
+Identity operators.
+Membership operators.
+Bitwise operators.
+
+------------------------------------------------------------------------------------------------------------------------
+
+what is the difference between is and ==
+The == operator compares the value or equality of two objects, whereas the Python is operator checks whether two variables point to the same object in memory
+
+------------------------------------------------------------------------------------------------------------------------
+
+What is dependency injection?
+Dependency injection is a principle that helps to decrease coupling and increase cohesion.
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
 How can you share global variables across modules?
 
 Ans: To share global variables across modules within a single program, create a special module. 
@@ -10,13 +157,13 @@ Do sets, dictionaries and tuples also support comprehensions?
 Ans: Sets and dictionaries support it. However tuples are immutable and have
 generators but not comprehensions.
 Set Comprehension:
-r={xforxinrange(2,101)
-ifnotany(x%y==0foryinrange(2,x))}
+r={x for x in range(2,101) if not any(x%y==0 for y in range(2,x)) }
 Dictionary Comprehension:
-{i:jfori,jin{1:’a’,2:’b’}.items()}
+{i:j for i,j in {1:’a’,2:’b’}.items()}
 since
-{1:’a’,2:’b’}.items()returnsalistof2-Tuple.iisthefirstelement
-oftuplejisthesecond.
+{1:’a’,2:’b’}.items()
+returns a list of 2-Tuple.i is the first element of tuple j is these cond.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 When is not a good time to use python generators?
@@ -47,3 +194,257 @@ into intermediate language which is again translated it into the native language
 machine language that is executed. So Python is an Interpreted language.
 ------------------------------------------------------------------------------------------------------------------------
 
+https://www.interviewkickstart.com/interview-questions/advanced-python-interview-questions
+
+Describe compile-time and run-time code checking in Python
+
+What do you understand by the term PEP 8
+PEP 8 is the Python latest coding convention and it is abbreviated as Python Enhancement Proposal. It is all about how to format your Python code for maximum readability.
+
+How memory management is done in Python
+In Python memory management is done using private heap space. The private heap is the storage area for all the data structures and objects. The interpreter has access to the private heap and the programmer cannot access this private heap. 
+The storage allocation for the data structures and objects in Python is done by the memory manager. The access for some tools is provided by core API for programmers to code.
+The built-in garbage collector in Python is used to recycle all the unused memory so that it can be available for heap storage area.
+
+What is the difference between lists and tuples?
+Lists	                                    Tuples
+Lists are mutable, i.e., they can be edited	Tuples are immutable (they are lists that cannot be edited)
+Lists are usually slower than tuples	    Tuples are faster than lists
+Lists consume a lot of memory	            Tuples consume less memory when compared to lists
+Lists are less reliable in terms of errors  Tuples are more reliable as it is hard for any unexpected
+as unexpected changes are more likely       change to occur
+Lists consist of many built-in functions.	Tuples do not consist of any built-in functions.
+
+What are python namespaces
+A Python namespace ensures that object names in a program are unique and can be used without any conflict. Python implements these namespaces as dictionaries with ‘name as key’ mapped to its respective ‘object as value’.
+Local Namespace consists of local names inside a function. It is temporarily created for a function call and gets cleared once the function returns.
+Global Namespace consists of names from various imported modules/packages that are being used in the ongoing project. It is created once the package is imported into the script and survives till the execution of the script.
+Built-in Namespace consists of built-in functions of core Python and dedicated built-in names for various types of exceptions.
+
+Explain Inheritance in Python with an example
+Single inheritance: When a class inherits only one superclass
+Multiple inheritance: When a class inherits multiple superclasses
+Multilevel inheritance: When a class inherits a superclass, and then another class inherits this derived class forming a ‘parent, child, and grandchild’ class structure
+Hierarchical inheritance: When one superclass is inherited by multiple derived classes
+
+What is type conversion in Python
+Various Functions of explicit conversion are show below:
+int() –  function converts any data type into integer.
+float() –   function converts any data type into float.
+ord() – function returns an integer representing the Unicode character
+hex() –  function converts integers to hexadecimal strings.
+oct() –   function converts integer to octal strings.
+tuple() – function convert to a tuple.
+set() – function returns the type after converting to set.
+list() – function converts any data type to a list type.
+dict() – function is used to convert a tuple of order (key,value) into a dictionary.
+str() –  function used to convert integer into a string.
+complex(real,imag) – function used to convert real numbers to complex(real,imag) numbers.
+
+What is the difference between Python Arrays and lists
+List	                                                Array
+Consists of elements belonging to different data types	Consists of only those elements having the same data type
+No need to import a module for list declaration	        Need to explicitly import a module for array declaration
+Can be nested to have different type of elements	    Must have all nested elements of the same size
+Recommended to use for shorter sequence of data items	Recommended to use for longer sequence of data items
+More flexible to allow easy modification                Less flexible since addition or deletion
+(addition or deletion) of data	                        has to be done element-wise
+Consumes large memory for the addition of elements	    Comparatively more compact in memory size while inserting elements
+Can be printed entirely without using looping	        A loop has to be defined to print or access the components
+Syntax:                                                 Syntax:
+list = [1,”Hello”,[‘a’,’e’]]	                        import array
+                                                        array_demo = array.array(‘i’, [1, 2, 3])
+                                                        (array  as integer type)
+
+How can you randomize the items of a list in place in Python
+List = ['He', 'Loves', 'To', 'Code', 'In', 'Python']
+shuffle(List)
+print(List)
+
+Explain split(), sub(), subn() methods of “re” module in Python
+split(): This method is used to split a given string into a list.
+sub(): This method is used to find a substring where a regex pattern matches, and then it replaces the matched substring with a different string.
+subn(): This method is similar to the sub() method, but it returns the new string, along with the number of replacements.
+
+What is a map function in Python
+The map() function in Python has two parameters, function and iterable. The map() function takes a function as an argument and then applies that function to all the elements of an iterable
+def calculateSq(n):
+    return n*n
+numbers = (2, 3, 4, 5)
+result = map( calculateSq, numbers)
+print(result)
+
+What is pickling and unpickling . Methods of pickle module
+The Pickle module accepts the Python object and converts it into a string representation and stores it into a file by using the dump function. This process is called pickling.
+dump()  - used to write a pickled representation of obj to the open file object file e.g. pickle.dump(o, out_s)
+dumps() - This function returns the pickled representation of the object as a bytes object e.g. pickle.dumps(data)
+load()  - used to read a pickled object representation from the open file object file e.g. pickle.load(in_s)
+loads() - used to read a pickled object representation from a bytes object e.g. data1_string = pickle.dumps(data1) data2 = pickle.loads(data1_string)
+
+Write a code to display the contents of a file in reverse
+for line in reversed(list(open(filename.txt))):
+    print(line.rstrip())
+
+How will you read a random line in a file
+import random
+def read_random(fname):
+    lines = open(fname).read().splitlines()
+    return random.choice(lines)
+print(read_random (‘hello.txt’))
+
+Whenever Python exits, why isn’t all the memory de-allocated
+Whenever Python exits, especially those Python modules which are having circular references to other objects or the objects that are referenced from the global namespaces are not always de-allocated or freed.
+It is not possible to de-allocate those portions of memory that are reserved by the C library.
+On exit, because of having its own efficient clean up mechanism, Python would try to de-allocate every object.
+
+How to add values to a python array
+In python, adding elements in an array can be easily done with the help of extend(),append() and insert() functions.
+x=arr.array('d', [11.1 , 2.1 ,3.1] )
+x.append(10.1)
+print(x)   #[11.1,2.1,3.1,10.1]
+x.extend([8.3,1.3,5.3])
+print(x)  #[11.1,2.1,3.1,10.1,8.3,1.3,5.3]
+x.insert(2,6.2)
+print(x)        # [11.1,2.1,6.2,3.1,10.1,8.3,1.3,5.3]
+
+Can you write an efficient code to count the number of capital letters in a file
+count = 0
+text = countletter.read()
+for character in text:
+if character.isupper():
+count += 1
+To make this code more efficient, the whole code block can be converted into a one-liner code using the feature called generator expression. With this, the equivalent code line of the above code block would be as follows:
+count sum(1 for line in countletter for character in line if character.isupper())
+
+Why would you use NumPy arrays instead of lists in Python?
+NumPy arrays provide users with three main advantages as shown below:
+NumPy arrays consume a lot less memory, thereby making the code more efficient.
+NumPy arrays execute faster and do not add heavy processing to the runtime.
+NumPy has a highly readable syntax, making it easy and convenient for programmers.
+
+What are dataframes
+Two dimensional mutable data structure or data aligned in the tabular form with labeled axes(rows and column).
+
+How to combine dataframes in pandas
+data_frame1.append(data_frame2) - This function is used for horizontal stacking of dataframes.
+pd.concat([data_frame1, data_frame2]) - This function is used for vertical stacking and best suites when the dataframes to be combined possess the same column and similar fields.
+data_frame1.join(data_frame2) - This function is used to extract data from different dataframes which have one or more columns common.
+
+How do you identify missing values and deal with missing values in Dataframe?
+missing_count=data_frame1.isnull().sum()
+df[‘col_name’] = df[‘col_name’].fillna((df[‘col_name’].mean()))
+
+Write a code to get the indices of N maximum values from a NumPy array
+import numpy as np
+ar = np.array([1, 3, 2, 4, 5, 6])
+print(ar.argsort()[-3:][::-1])
+
+What are the Wheels and Eggs? What is the difference?
+Wheel and Egg are both packaging formats that aim to support the use case of needing an install artifact that doesn’t require building or compilation, which can be costly in testing and production workflows.
+Wheel is currently considered the standard for built and binary packaging for Python.
+
+What does the Python nonlocal statement do (in Python 3.0 and later)
+In short, it lets you assign values to a variable in an outer (but non-global) scope.
+The nonlocal statement causes the listed identifiers to refer to previously bound variables in the nearest enclosing scope excluding globals.
+def make_counter():
+    count = 0
+    def counter():
+        nonlocal count
+        count += 1
+        return count
+    return counter
+
+How do you define abstract classes in Python
+
+from abc import ABC
+class AbstractCar(ABC):
+    @abstractmethod
+    def drive(self):
+        pass
+class ToyotaSupra(AbstractCar):
+    def drive(self):
+        print('brrrr sutututu')
+
+What are the new features added in Python 3.9.0.0 version
+New Dictionary functions Merge(|) and Update(|=)
+New String Methods to Remove Prefixes and Suffixes
+Type Hinting Generics in Standard Collections
+New Parser based on PEG rather than LL1
+New modules like zoneinfo and graphlib
+Improved Modules like ast, asyncio, etc.
+Optimizations such as optimized idiom for assignment, signal handling, optimized python built ins, etc.
+Deprecated functions and commands such as deprecated parser and symbol modules, deprecated functions, etc.
+Removal of erroneous methods, functions, etc.
+
+How will you capitalize the first letter of string
+In Python, the capitalize() method capitalizes the first letter of a string. If the string already consists of a capital letter at the beginning, then, it returns the original string
+
+Explain garbage collection with Python.
+The following points are worth nothing for the garbage collector with CPython-
+Python maintains a count of how many references there are to each object in memory
+When a reference count drops to zero, it means the object is dead and Python can free the memory it allocated to that object
+The garbage collector looks for reference cycles and cleans them up
+Python uses heuristics to speed up garbage collection
+Recently created objects might as well be dead
+The garbage collector assigns generations to each object as it is created
+It deals with the younger generations first.
+
+How will you find, in a string, the first word that rhymes with ‘cake’?
+>>> import re
+>>> rhyme=re.search('.ake','I would make a cake, but I hate to bake')
+>>> rhyme.group()
+
+What is the MRO in Python?
+MRO stands for Method Resolution Order. Talking of multiple inheritances, whenever we search for an attribute in a class, 
+Python first searches in the current class. If found, its search is satiated. 
+If not, it moves to the parent class. It follows an approach that is left-to-right and depth-first. It goes Child, Mother, Father, Object.
+We can call this order a linearization of the class Child; the set of rules applied are the Method Resolution Order (MRO). 
+We can borrow the __mro__ attribute or the mro() method to get this.
+
+Is Python call-by-value or call-by-reference? 
+Python is neither call-by-value, nor call-by-reference. It is call-by-object-reference. Almost everything is an object in Python
+Functions will modify values of mutable objects, but not immutable ones:
+
+What is a namedtuple?
+A namedtuple will let us access a tuple’s elements using a name/label. We use the function namedtuple() for this, and import it from collections
+>>> from collections import namedtuple
+>>> result=namedtuple('result','Physics Chemistry Maths') #format
+>>> Ayushi=result(Physics=86,Chemistry=95,Maths=86) #declaring the tuple
+>>> Ayushi.Chemistry
+
+How will you efficiently load data from a text file
+We can use the method numpy.loadtxt() which can automatically read the file’s header and footer lines and the comments if any.
+
+How do I access a module written in Python from C
+module = PyImport_ImportModule("");
+
+Does Python need to be compiled before it is run
+Compiled languages are based on code that can be executed directly on a computer’s processor. 
+An interpreted language, on the other hand, isn’t in “machine code” before runtime. 
+The translation happens at the same time as the program is executed
+
+How Python does Compile-time and Run-time code checking?
+In Python, some amount of coding is done at compile time, but most of the checking such as type, name, etc. are postponed until code execution. 
+Consequently, if the Python code references a user-defined function that does not exist, the code will compile successfully. 
+The Python code will fail only with an exception when the code execution path does not exist
+
+Does python supports method overloading ?
+Python does not support method overloading like Java or C++. We may overload the methods, but we can only use the latest defined method. 
+We need to provide optional arguments or *args in order to provide a different number of arguments on calling.
+
+How to handle database credentials when using python ?
+use environment variables. Whether you’re using Windows or a Unix-based system, 
+you can always set these variables and hide them within your system, and they’re definitely more confidential than using scripts or configuration files.
+In addition, when you’re deploying into a container (e.g. Docker), you can easily set your environment variables and not worry about changing them between deployments.
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Integer
+String
+Lists 
+Tuple 
+Dictionary
+Sets
+FrozenSets

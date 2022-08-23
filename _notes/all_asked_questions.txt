@@ -26,3 +26,51 @@
 # python rq , asynchronous taks python
 # celery
 
+# 1..Pyhton program to replace first occurance of vowels with '-'in a string ,without using dictinaries
+# 2. python program to have count of alphabets ,digits and special characters without using dictionaries
+# 'practice ' => 'pr-ctice'
+# all django exceptions 
+# python inheritance 
+# microservices benefits 
+# usefulness of ec2 
+# how do you make call to S3 
+# what is drf and how it is useful
+# can set have item with immutable data type 
+# does python support method overloading
+
+def add(a,b):
+    return a+b
+
+def add(a,b,c):
+    return a+b+c
+
+def add(a,b,c,d):
+    return a*b+c+d
+
+print(add(5,7,5,5))
+print(add(5,7))
+print(add(5,7,5))
+
+# how to handle database credentials when connecting to multiple databases 
+# adding telemetry data to the components 
+# asyncio uses 
+# connection pooling in Django ORM 
+# implementation of pagintation logic from scratch 
+# diffrent type of operators in python 
+# difference between is and == 
+# development server and production server django 
+# why do we need to do collectstatic in django , white noise in apache server ?
+# dependency injection
+# how do you maintain versioning in api v1,v2
+# http 1.1 , 1.2 what does it mean
+# event loop concept 
+# how does django support multithreading 
+# django is multithreaded outside but single threaded inside
+
+# how do we identify memory leak in python 
+# diffrent stages of CI/CD pipeline
+# solid principles python 
+# pros and cons of python 
+# code review steps 
+
+

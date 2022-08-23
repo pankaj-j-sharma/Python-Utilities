@@ -1,0 +1,97 @@
+Topics 
+------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Why You must never enable debug in production?
+You’re certainly developing your project with DEBUG = True, since this enables handy features like full tracebacks in your browser.
+For a production environment, though, this is a really bad idea, because it leaks lots of information about your project: excerpts of your source code, local variables, settings, libraries used, etc.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Why do we need to do collectstatic while deploying to production 
+Static files are automatically served by the development server. In production, you must define a STATIC_ROOT directory where collectstatic will copy them.
+On the server, run collectstatic to copy all the static files into STATIC_ROOT.
+Configure your web server to serve the files in STATIC_ROOT under the URL STATIC_URL.
+
+------------------------------------------------------------------------------------------------------------------------
+
+what is WhiteNoise ?
+With a couple of lines of config WhiteNoise allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on nginx, Amazon S3 or any other external service.
+
+------------------------------------------------------------------------------------------------------------------------
+
+django is multithreaded outside but single threaded inside
+Django itself does not determine whether it runs in one or more threads. This is the job of the server running Django.
+The development server used to be single-threaded, but in recent versions it has been made multithreaded. Other servers such as Apache/mod_wsgi, gunicorn, or uwsgi, have their own defaults and can be configured in a number of ways; often they use multiple processes rather than threads.
+
+------------------------------------------------------------------------------------------------------------------------
+
+diffrent stages of CI/CD pipeline
+Version Control (Commit/Push) => 
+Build the app => 
+Unit Test => 
+Deploy to Staging => 
+Automated Tests => 
+Deploy to Production => 
+Validation
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+what are django exceptions 
+
+AppRegistryNotReady	It is raised when attempting to use models before the app loading process.
+ObjectDoesNotExist	The base class for DoesNotExist exceptions.
+EmptyResultSet	If a query does not return any result, this exception is raised.
+FieldDoesNotExist	It raises when the requested field does not exist.
+MultipleObjectsReturned	This exception is raised by a query if only one object is expected, but multiple objects are returned.
+SuspiciousOperation	This exception is raised when a user has performed an operation that should be considered suspicious from a security perspective.
+PermissionDenied	It is raised when a user does not have permission to perform the action requested.
+ViewDoesNotExist	It is raised by django.urls when a requested view does not exist.
+MiddlewareNotUsed	It is raised when a middleware is not used in the server configuration.
+ImproperlyConfigured	The ImproperlyConfigured exception is raised when Django is somehow improperly configured.
+FieldError	It is raised when there is a problem with a model field.
+ValidationError	It is raised when data validation fails form or model field validation.
+
+what is PEP8 Python ? 
+
+The primary focus of PEP 8 is to improve the readability and consistency of Python code. 
+PEP stands for Python Enhancement Proposal, and there are several of them. 
+A PEP is a document that describes new features proposed for Python and documents aspects of Python, 
+like design and style, for the community.
+
+django version used 
+3.1.12
+
+Explain Django Response lifecycle?
+Whenever a request is made to a web page, Django creates an HttpRequest object that contains metadata about the request. After that Django loads the particular view, passing the HttpRequest as the first argument to the view function. Each view will be returning an HttpResponse object.
+On the big picture following steps occur when a request is received by Django:
+First of the Django settings.py file is loaded which also contain various middleware classes (MIDDLEWARES)
+The middlewares are also executed in the order in which they are mentioned in the MIDDLEWAREST
+From here on the request is now moved to the URL Router, who simply gets the URL path from the request and tries to map with our given URL paths in the urls.py. 
+As soon as it has mapped, it will call the equivalent view function, from where an equivalent response is generated
+The response also passes through the response middlewares and send back to the client/browser
+
+Is Django too monolithic? Explain this statement.
+The Django framework is monolithic, which is valid to some extent. As Django's architecture is MTV-based, it requires some rules that developers need to follow to execute the appropriate files at the right time.
+With Django, you get significant customizations with implementations. Through this, you cannot change file names, variable names, and predefined lists.
+Django's file structure is a logical workflow. Thus the monolithic behavior of Django helps developers to understand the project efficiently.
+
+Can you explain how to add View functions to the urls.py file?
+There are two ways to add the view function to the main URLs config:
+1. Adding a function View
+2. Adding a Class-based view 
+
+What is the correct way to make a variable available to all your templates?
+In case all your templates need the same objects, use "RequestContext." This method takes HttpRequest as the first parameter and populates the context with a few variables simultaneously as per the engine's context_processors configuration option.
+
+How to check the raw SQL queries running in Django??
+Make sure that the DEBUG setting is set to True, and type the following commands:
+from Django.db import connection
+connection.queries
+
