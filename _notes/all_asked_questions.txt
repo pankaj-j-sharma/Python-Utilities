@@ -73,4 +73,14 @@ print(add(5,7,5))
 # pros and cons of python 
 # code review steps 
 
+# Python tuple vs generator
+
+# when to use multithreading and multiprocessing I/O intensive CPU intensive 
+# how to implement custom context managers 
+# how to implement custom generators  
+# code coverage , unit test case 
+# apart from mutability principle , why tuples are faster than lists 
+# shallow copy and deep copy with examples 
+# for else and try else when and which scenario else will be executed 
+
 

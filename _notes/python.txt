@@ -379,8 +379,11 @@ Removal of erroneous methods, functions, etc.
 How will you capitalize the first letter of string
 In Python, the capitalize() method capitalizes the first letter of a string. If the string already consists of a capital letter at the beginning, then, it returns the original string
 
+Explain Reference counting in python ?
+https://www.pythontutorial.net/advanced-python/python-references/
+
 Explain garbage collection with Python.
-The following points are worth nothing for the garbage collector with CPython-
+The following points are worth noting for the garbage collector with CPython-
 Python maintains a count of how many references there are to each object in memory
 When a reference count drops to zero, it means the object is dead and Python can free the memory it allocated to that object
 The garbage collector looks for reference cycles and cleans them up
@@ -437,7 +440,16 @@ use environment variables. Whether you’re using Windows or a Unix-based system
 you can always set these variables and hide them within your system, and they’re definitely more confidential than using scripts or configuration files.
 In addition, when you’re deploying into a container (e.g. Docker), you can easily set your environment variables and not worry about changing them between deployments.
 
+Explain event driven programming in python
+https://www.javatpoint.com/python-event-driven-programming
 
+
+Python tuple vs generator
+You can imagine tuples as being created when you hardcode the values, while generators are created where you provide a way to create the objects.
+This works since there is no way (1,2,3,4) could be a generator. There is nothing to generate there, you just specified all the elements, 
+not a rule to obtain them.
+In order for your generator to be a tuple, the expression (i for i in sample_list) would have to be a tuple comprehension. There is no way to have tuple comprehensions, 
+since comprehensions require a mutable data type.
 
 ------------------------------------------------------------------------------------------------------------------------
 
