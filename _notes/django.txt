@@ -95,3 +95,21 @@ Make sure that the DEBUG setting is set to True, and type the following commands
 from Django.db import connection
 connection.queries
 
+Model inheritance styles in django 
+Abstract Base Class Inheritance:
+This style is used when you only want parents class to hold information that you don’t want to type out for each child model.
+Multi Table Model Inheritance:
+This style is used if you are sub-classing an existing model and need each model to have its own database table.
+Proxy Model Inheritance:
+This style is used, if you only want to modify the Python level behaviour of the model, without changing the model’s fields.
+
+What's the difference between django OneToOneField and ForeignKey?
+A one-to-one relationship. Conceptually, this is similar to a ForeignKey with unique=True, but the "reverse" side of the relation will directly return a single object.
+
+When to use or not use iterator() in the django ORM
+A QuerySet typically caches its results internally so that repeated evaluations do not result in additional queries. 
+In contrast, iterator() will read results directly, without doing any caching at the QuerySet level (internally, 
+the default iterator calls iterator() and caches the return value). 
+For a QuerySet which returns a large number of objects that you only need to access once, 
+this can results in better performance and a significant reduction in memory.
+

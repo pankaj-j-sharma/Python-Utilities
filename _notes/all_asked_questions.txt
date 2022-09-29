@@ -82,5 +82,10 @@ print(add(5,7,5))
 # apart from mutability principle , why tuples are faster than lists 
 # shallow copy and deep copy with examples 
 # for else and try else when and which scenario else will be executed 
-
-
+# django signals how to write 
+# orm query for avg sum 
+# model inheritance in django 
+# how to do data migrations in django 
+# what are meta classes and their uses python 
+# multiprocessing meaning 
+# mock and mock patch in unit testing 

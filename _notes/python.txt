@@ -451,6 +451,55 @@ not a rule to obtain them.
 In order for your generator to be a tuple, the expression (i for i in sample_list) would have to be a tuple comprehension. There is no way to have tuple comprehensions, 
 since comprehensions require a mutable data type.
 
+Why tuples are faster than Lists
+Tuples are stored in a single block of memory. Tuples are immutable so, It doesn't require extra space to store new objects.
+Lists are allocated in two blocks: the fixed one with all the Python object information and a variable-sized block for the data.
+
+shallow copy and deep copy with examples 
+from copy import deepcopy 
+list1 = [1,2,3,4,5,6]
+list2 = list1.deepcopy()
+list3 = list1.copy()
+
+Multithreading vs Multiprocessing 
+Multiprocessing is a system that has more than one or two processors. 
+In Multiprocessing, CPUs are added for increasing computing speed of the system. 
+Multithreading is a system in which multiple threads are created of a process for increasing the computing speed of the system. 
+In multithreading, many threads of a process are executed simultaneously 
+and process creation in multithreading is done according to economical
+
+Multithreading is useful for IO-bound processes, such as reading files from a network or 
+database since each thread can run the IO-bound process concurrently. 
+Multiprocessing is useful for CPU-bound processes, such as computationally heavy tasks since 
+it will benefit from having multiple processors; similar to how multicore computers work faster than computers with a single core.
+
+Coding interview round tips
+https://realpython.com/python-coding-interview-tips/
+
+What is dependency injection?
+dependency injection is a design pattern in which an object or function receives other objects or 
+functions that it depends on. A form of inversion of control, dependency injection aims to separate the concerns of constructing objects 
+and using them, leading to loosely coupled programs.
+
+Metaclasses in python 
+A metaclass is the class of a class. A class defines how an instance of the class (i.e. an object) behaves 
+while a metaclass defines how a class behaves. A class is an instance of a metaclass.
+
+
+Python mutable defaults
+Do not use mutable default arguments in Python, unless you have a REALLY good reason to do so.
+In Python, when passing a mutable value as a default argument in a function, 
+the default argument is mutated anytime that value is mutated. 
+Here, "mutable value" refers to anything such as a list, a dictionnary or even a class instance
+
+boto3 diffrence between client and resource 
+Client and Resource are two different abstractions within the boto3 SDK for making AWS service requests. 
+If you want to make API calls to an AWS service with boto3, then you do so via a Client or a Resource.
+You would typically choose to use either the Client abstraction or the Resource abstraction, but you can use both, as needed. 
+I've outlined the differences below to help readers decide which to use
+Resource is high level class and newer compare to Client API 
+Client is low level class 
+
 ------------------------------------------------------------------------------------------------------------------------
 
 Integer
