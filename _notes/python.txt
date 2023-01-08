@@ -509,3 +509,54 @@ Tuple
 Dictionary
 Sets
 FrozenSets
+
+
+How can you share global variables across modules?
+
+Ans: To share global variables across modules within a single program, create a special module. 
+Import the config module in all modules of your application. 
+The module will be available as a global variable across modules.
+------------------------------------------------------------------------------------------------------------------------
+
+Do sets, dictionaries and tuples also support comprehensions?
+
+Ans: Sets and dictionaries support it. However tuples are immutable and have
+generators but not comprehensions.
+Set Comprehension:
+r={xforxinrange(2,101)
+ifnotany(x%y==0foryinrange(2,x))}
+Dictionary Comprehension:
+{i:jfori,jin{1:’a’,2:’b’}.items()}
+since
+{1:’a’,2:’b’}.items()returnsalistof2-Tuple.iisthefirstelement
+oftuplejisthesecond.
+------------------------------------------------------------------------------------------------------------------------
+
+When is not a good time to use python generators?
+
+Ans: Use list instead of generator when:
+1­ You need to access the data multiple times (i.e. cache the results instead of
+recomputing them)
+2­ You need random access (or any access other than forward sequential order):
+3­ You need to join strings (which requires two passes over the data)
+4­ You are using PyPy which sometimes can’t optimize generator code as much
+as it can with normal function calls and list manipulations.
+------------------------------------------------------------------------------------------------------------------------
+
+Do you know what is the difference between lists and tuples? Can you give me an example for their usage?
+
+Ans: First list are mutable while tuples are not, and second tuples can be hashed e.g.
+to be used as keys for dictionaries. As an example of their usage, tuples are used when
+the order of the elements in the sequence matters e.g. a geographic coordinates, “list”
+of points in a path or route, or set of actions that should be executed in specific order.
+Don’t forget that you can use them a dictionary keys. For everything else use lists
+------------------------------------------------------------------------------------------------------------------------
+
+Explain how python is interpreted.
+
+Ans: Python program runs directly from the source code. Each type Python programs
+are executed code is required. Python converts source code written by the programmer
+into intermediate language which is again translated it into the native language
+machine language that is executed. So Python is an Interpreted language.
+------------------------------------------------------------------------------------------------------------------------
+
