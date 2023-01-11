@@ -89,3 +89,50 @@ print(add(5,7,5))
 # what are meta classes and their uses python 
 # multiprocessing meaning 
 # mock and mock patch in unit testing 
+
+# 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+
+# def generate_fibonacci(series_length):
+#     a,b=0,1
+#     for i in range(series_length):
+#         if i==0:
+#             yield a
+#         elif i ==1 : 
+#             yield b
+#         else:
+#             b,a=a+b,b
+#             yield b
+
+# for d in generate_fibonacci(10):
+#     print(d)
+
+# # nppdvjthqldpwncqszvftbrmjlhg
+# #  6 
+
+# def get_unique_marker(data):
+#     window=[]
+#     marker_postn=0
+#     for ch in data:
+#         if len(window)==4:
+#             break
+#         if not window:
+#             window.append(ch)
+#         else:
+#             if ch in window:
+#                 marker_postn+=len(window)
+#                 window.pop()
+#             else:
+#                 window.append(ch)
+#     return len(window)+marker_postn
+
+
+# print(get_unique_marker('nppdvjthqldpwncqszvftbrmjlhg'))
+# nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg 10
+
+# python static method vs class method
+
+# can you remove django middlewares 
+# [] , {} , () which of them consumes lesser space 
+# building custom decorators 
+
+

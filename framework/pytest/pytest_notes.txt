@@ -1,0 +1,3 @@
+Running pytest without mentioning a filename will run all files of format test_*.py or *_test.py in the current directory and subdirectories. Pytest automatically identifies those files as test files
+Pytest requires the test function names to start with test. Function names which are not of format test* are not considered as test functions by pytest.
+

@@ -1350,3 +1350,114 @@
 # where dt.emp_id = 1 
 
 
+# import pytest
+# import main
+
+# check for pep8 standards
+# pip install pep8
+# pip install pycodestyle
+
+# check for pylint style
+# pylint ./Interviews
+
+# check for pytest 
+# pytest test.py
+
+
+# @pytest.fixture
+# def setup_class():
+#     return main.Human("Ciri",18,"female")
+
+# def test_speak(setup_class) :
+#     assert setup_class.speak()== "Hello everyone! I am Ciri"   
+
+# def test_bring_food(setup_class,mocker) :
+#     mock_patch = mocker.patch("main.requests.get")
+#     mock_patch.return_value.status_code=200
+#     assert setup_class.bring_food()== 200   
+
+# def test_eat(setup_class) :
+#     assert setup_class.eat("momos")== "I love to eat momos!!!" 
+
+
+
+# '''main module for Human class'''
+# import requests
+
+# class Human:
+#     '''Human class '''
+#     #class attribute
+#     species = "Homo Sapiens"
+#     def __init__(self, name, age, gender):
+#         self.name = name
+#         self.age = age
+#         self.gender = gender
+
+#     #Instance Method
+#     def speak(self):
+#         '''function for speak'''
+#         return f"Hello everyone! I am {self.name}"
+
+#     def bring_food(self):
+#         '''function for bring food'''
+#         print("bring food called")
+#         google = requests.get("http://127.0.0.1:8001/?search="+self.name,timeout=60)
+#         return google.status_code
+
+#     #Instance Method
+#     def eat(self, favourite_dish):
+#         '''function for eat'''
+#         return f"I love to eat {favourite_dish}!!!"
+
+
+# if __name__=='__main__':
+#     x = Human("Ciri",18,"female")
+#     print(x.speak())
+#     print(x.eat("momos"))
+#     print(x.bring_food())
+
+
+# class MockResponseExisting: # 1
+
+#     def __init__(self) -> None:
+#         self.status_code=200
+
+#     @staticmethod
+#     def json():
+#         return {'success':True} 
+
+
+# class TestHuman:
+
+#     @pytest.fixture
+#     def setup_human(self):
+#         return main.Human("Ciri",18,"female")
+
+#     def test_bring_food_mocker(self,setup_human,mocker) :
+#         mock_patch = mocker.patch("main.requests.get")
+#         mock_patch.return_value.status_code=200
+#         assert setup_human.bring_food()== 200   
+
+#     def test_bring_food_monkeypatch(self,setup_human,monkeypatch) :
+
+#         def mock_get(*args, **kwargs):
+#             return MockResponseExisting() 
+
+#         monkeypatch.setattr(main.requests, "get", mock_get)
+#         assert setup_human.bring_food()== 200   
+
+#     def test_bring_food_complete_patch(self,setup_human,mocker) :
+#         mocker.patch("main.Human.bring_food",return_value=200)
+#         assert setup_human.bring_food()== 200   
+
+#     def test_eat(self,setup_human) :
+#         assert setup_human.eat("momos")== "I love to eat momos!!!" 
+
+#     def test_init(self):        
+#         human_obj = main.Human("pankaj",18,"male")
+#         assert human_obj.name =="pankaj"
+#         assert human_obj.age ==18
+#         assert human_obj.gender =="male"
+
+#     def test_speak(self,setup_human) :
+#         assert setup_human.speak()== "Hello everyone! I am Ciri"         
